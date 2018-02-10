@@ -3,5 +3,6 @@
   become: yes
   roles:
     - vim
+    - aws
     - packer
     - terraform
