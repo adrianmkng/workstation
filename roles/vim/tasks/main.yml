@@ -1,0 +1,14 @@
+- name: Uninstall vim-tiny
+  apt:
+    name: vim-tiny
+    state: absent
+
+- name: Install vim
+  apt:
+    name: vim
+
+#- name: Install vimrc config
+#  become: no
+#  copy:
+#    src: vimrc
+#    dest: "{{ ansible_env.HOME }}/.vimrc"
