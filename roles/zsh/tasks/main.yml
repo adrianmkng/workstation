@@ -1,0 +1,11 @@
+- name: install zsh
+  apt:
+    name: zsh
+
+- name: install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# - name: install zsh config
+#   copy:
+#     src: zshrc
+#     dest: ~/.zshrc

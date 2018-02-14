@@ -7,8 +7,8 @@
   apt:
     name: vim
 
-#- name: Install vimrc config
-#  become: no
-#  copy:
-#    src: vimrc
-#    dest: "{{ ansible_env.HOME }}/.vimrc"
+- name: Install vimrc config
+  become: no
+  copy:
+    src: vimrc
+    dest: ~/.vimrc

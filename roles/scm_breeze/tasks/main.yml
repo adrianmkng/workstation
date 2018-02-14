@@ -1,0 +1,7 @@
+- name: check scm_breeze git project
+  git:
+    repo: git://github.com/scmbreeze/scm_breeze.git
+    dest: ~/.scm_breeze
+
+- name: install scm_breeze
+  command: ~/.scm_breeze/install.sh
