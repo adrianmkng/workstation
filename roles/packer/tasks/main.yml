@@ -1,7 +1,22 @@
-- name: Install packer
+- name: create packer dir
+  become: yes
+  file:
+    path: /opt/packer-{{ version }}
+    state: directory
+    mode: 0755
+
+- name: download packer
   become: yes
   unarchive:
-    src: https://releases.hashicorp.com/packer/1.2.0/packer_1.2.0_linux_amd64.zip
-    dest: /usr/local/bin
+    src: https://releases.hashicorp.com/packer/{{ version }}/packer_{{ version }}_linux_amd64.zip
+    dest: /opt/packer-{{ version }}
     remote_src: yes
-    creates: /usr/local/bin/packer
+    creates: /opt/packer-{{ version }}/packer
+
+- name: install packer
+  become: yes
+  file:
+    src: /opt/packer-{{ version }}/packer
+    dest: /usr/local/bin/packer
+    state: link
+    
