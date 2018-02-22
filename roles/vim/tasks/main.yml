@@ -12,3 +12,18 @@
   copy:
     src: vimrc
     dest: ~/.vimrc
+
+- name: Set vim as default
+  become: false
+  lineinfile:
+    name: "~/.profile"
+    regexp: "export VISUAL="
+    line: "export VISUAL=vim"
+
+- name: Set vim as default editor
+  become: false
+  lineinfile:
+    name: "~/.profile"
+    regexp: "export EDITOR="
+    line: "export EDITOR=$VISUAL"
+
