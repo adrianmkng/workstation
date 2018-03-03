@@ -1,12 +1,10 @@
 - name: create terraform dir
-  become: yes
   file:
     path: /opt/terraform-{{ version }}
     state: directory
     mode: 0755
 
 - name: download terraform
-  become: yes
   unarchive:
     src: https://releases.hashicorp.com/terraform/{{ version }}/terraform_{{ version }}_linux_amd64.zip
     dest: /opt/terraform-{{ version }}
@@ -14,7 +12,6 @@
     creates: /opt/terraform-{{ version }}/terraform
 
 - name: install terraform
-  become: yes
   file:
     src: /opt/terraform-{{ version }}/terraform
     dest: /usr/local/bin/terraform

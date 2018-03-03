@@ -4,7 +4,8 @@
     - chrome
     - vim
     - aws
-    - packer
-    - terraform
+    - { role: kubernetes, become: yes }
+    - { role: packer, become: yes }
+    - { role: terraform, become: yes }
     - zsh
     - scm_breeze
