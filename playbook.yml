@@ -1,7 +1,6 @@
 ---
 - hosts: all
   roles:
-    - chrome
     - vim
     - aws
     - { role: kubernetes, become: yes }

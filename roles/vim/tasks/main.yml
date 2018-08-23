@@ -1,27 +1,26 @@
 - name: Uninstall vim-tiny
+  become: yes
   apt:
     name: vim-tiny
     state: absent
 
 - name: Install vim
+  become: yes
   apt:
     name: vim
 
 - name: Install vimrc config
-  become: no
   copy:
     src: vimrc
     dest: ~/.vimrc
 
 - name: Set vim as default
-  become: false
   lineinfile:
     name: "~/.profile"
     regexp: "export VISUAL="
     line: "export VISUAL=vim"
 
 - name: Set vim as default editor
-  become: false
   lineinfile:
     name: "~/.profile"
     regexp: "export EDITOR="

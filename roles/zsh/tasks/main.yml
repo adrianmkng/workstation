@@ -1,8 +1,10 @@
 - name: install zsh
+  become: yes
   apt:
     name: zsh
 
 - name: install oh-my-zsh
+  become: yes
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # - name: install zsh config
